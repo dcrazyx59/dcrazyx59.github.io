@@ -9,8 +9,8 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="sticky">
-            <div className="container fixed top-0 right-0 left-0 mx-auto flex justify-between items-center p-2 pt-8 border-b-1 ">
+        <nav className="sticky mix-blend-difference">
+            <div className="container backdrop-blur-xs fixed top-0 right-0 left-0 mx-auto flex justify-between items-center p-2 pt-8 border-b-1">
                 <Link href="/" className=" text-lg font-bold">
                     AppIcon
                 </Link>
@@ -24,11 +24,13 @@ export default function Navbar() {
                 </button>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex text-2xl divide-x divide-white">
-                    <Link href="#" className=" hover:text-gray-400 px-15">Home</Link>
+                <div className="hidden md:flex text-xl divide-x divide-primary-light ">
+                    <Link href="#" className=" hover:text-gray-400 px-15 ">Home</Link>
                     <Link href="/about" className=" hover:text-gray-400 px-15">About</Link>
                     <Link href="/tech" className=" hover:text-gray-400 px-15">Technologies</Link>
+                    <Link href="/contact" className=" hover:text-gray-400 px-15">Experiences</Link>
                     <Link href="/contact" className=" hover:text-gray-400 px-15">Contact Me</Link>
+
                 </div>
 
                 {/* Mobile Menu (Dropdown) */}

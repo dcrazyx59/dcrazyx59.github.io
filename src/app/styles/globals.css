@@ -14,8 +14,8 @@
 }
 
 @theme {
-  --color-primary-light: #fff;
-  --color-primary-dark : #ddd;
+  --color-primary-light: #ededed;
+  --color-primary-dark : #222222;
 }
 
 body {
