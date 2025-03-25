@@ -3,6 +3,7 @@
 // layout => display => spacing => border => colors => text
 import { useEffect } from 'react';
 import NavBar from "./components/common/navbar";
+import ThemeToggle from './components/common/themeToggle';
 
 export default function Home() {
 
@@ -25,9 +26,12 @@ export default function Home() {
     };
 
     document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('scroll', handleMouseMove);
+
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
+      document.addEventListener('scroll', handleMouseMove);
     };
   }, []);
 
@@ -43,10 +47,11 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <section className="flex h-screen bg-primary-dark justify-center align-center m-auto pt-40 z-10">
+      <ThemeToggle />
+      <section className="flex h-screen bg-primary-dark justify-center align-center m-auto pt-40">
         <div id="anchor" className="eyes absolute bottom-3.5  flex flex-row gap-3">
-            <img src="/eye.png" className="eye relative size-5 mb-6 rounded-2xl" alt="" />
-            <img src="/eye.png" className="eye relative size-5 mb-6 rounded-2xl" alt="" />
+            <img src="/eye.png" className="eye relative size-4 mb-6 rounded-2xl" alt="" />
+            <img src="/eye.png" className="eye relative size-4 mb-6 rounded-2xl" alt="" />
         </div>
       </section>
 
