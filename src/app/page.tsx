@@ -48,23 +48,25 @@ export default function Home() {
     <>
       <NavBar />
       <ThemeToggle />
-      <section className="flex h-screen bg-primary-dark justify-center align-center m-auto pt-40">
-        <div id="anchor" className="eyes absolute bottom-3.5  flex flex-row gap-3">
+      <section className="flex h-screen bg-secondary justify-center align-center m-auto pt-40 ">
+      Hello
+        <div id="anchor" className="eyes absolute bottom-3.5 flex flex-row gap-3">
             <img src="/eye.png" className="eye relative size-4 mb-6 rounded-2xl" alt="" />
             <img src="/eye.png" className="eye relative size-4 mb-6 rounded-2xl" alt="" />
         </div>
       </section>
 
-      <section className="h-[80vh] bg-primary-light">
+      <section className="h-[80vh] bg-primary">
+        Hello
       </section>
 
-      <section className="h-[130vh] bg-primary-dark">
+      <section className="h-[130vh] bg-secondary">
       </section>
 
-      <section className="h-[80vh] bg-primary-light">
+      <section className="h-[80vh] bg-primary">
       </section>
 
-      <section className="h-[120vh] bg-primary-dark-">
+      <section className="h-[120vh] bg-secondary">
       </section>
     </>
   );
