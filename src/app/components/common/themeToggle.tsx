@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const themes = {
   moon: {
@@ -17,6 +17,27 @@ const themes = {
 export default function ThemeToggle() {
   const [theme, setTheme] = useState(themes.sun);
   
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+      setTheme(savedTheme === 'dark' ? themes.moon : themes.sun);
+    } else if (systemPrefersDark) {
+      setTheme(themes.moon);
+    }
+  }, []);
+  
+  useEffect(() => {
+    if (theme.isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [theme]);
+
   const handleTheme = () => {
     setTheme(prevTheme => 
       prevTheme.name === 'moon' ? themes.sun : themes.moon
@@ -32,7 +53,7 @@ export default function ThemeToggle() {
             initial={theme === themes.sun ? { rotate: -50, opacity: 0 } : { rotate: 50, opacity: 0 }}
             animate={{ rotate: 0, opacity: 1 }}
             exit={theme === themes.sun ? { rotate: -50, opacity: 0 } : { rotate: 50, opacity: 0 }}
-            transition={{ duration: 0.3, type: "spring" }}
+            transition={{ duration: 0.15, type: "spring" }}
             whileHover={{ scale: 1.1 }}
             xmlns="http://www.w3.org/2000/svg"
             width="30"

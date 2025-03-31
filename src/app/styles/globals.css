@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Orbitron&family=Roboto:wght@100..900&display=swap');
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @import "tailwindcss";
-
 
 :root {
   --background: #ededed;
@@ -9,8 +7,14 @@
   --hovered: #ffffff;
 }
 
+:root[data-theme="dark"] {
+  --background: #222222;
+  --foreground: #ededed;
+  --hovered: #ffffff;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --background: #222222;
     --foreground: #ededed;
     --hovered: #ffffff;
@@ -27,4 +31,5 @@ body {
   background: var(--background);
   color: #b8b8b8;
   font-family: 'Big Shoulders', Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
