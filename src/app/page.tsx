@@ -19,6 +19,9 @@ export default function Home() {
       </section>
 
       <section className="h-[130vh] bg-secondary">
+        <div className="flex justify-center align-center m-auto">
+          <img src="/bottom1.gif" alt="" className=""/>
+        </div>
       </section>
 
       <section className="h-[80vh] bg-primary">

@@ -91,10 +91,10 @@ export default function Introduction() {
             </div>
             {/* <iframe width="500" height="300" src="https://api.maptiler.com/maps/backdrop/?key=W8F9znTXAD3GgukNA7Rh#10.0/40.46945/-3.71258"></iframe> */}
           <div id="anchor" className="eyes absolute bottom-[-22px] flex flex-row gap-3.5">
-              <img src="/eye.png" className="eye relative size-5.5 mb-6 rounded-2xl" alt="" />
-              <img src="/eye.png" className="eye relative size-5.5 mb-6 rounded-2xl" alt="" />
+              <img src="/eye.png" className="eye relative size-5.5 mb-6 rounded-2xl filter invert" alt="" />
+              <img src="/eye.png" className="eye relative size-5.5 mb-6 rounded-2xl filter invert" alt="" />
           </div>
-          <img src="/cat_black.png" alt="" className='absolute bottom-[-45px] w-[150px] h-[150px]'/>
+          <img src="/cat_black.png" alt="" className='absolute bottom-[-45px] w-[150px] h-[150px] filter invert'/>
         </section>
     )
 }

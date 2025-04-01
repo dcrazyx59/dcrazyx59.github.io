@@ -13,19 +13,27 @@
   --hovered: #ffffff;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ededed;
+    --foreground: #222222;
+    --hovered: #ffffff;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
+  :root[data-theme] {
     --background: #222222;
     --foreground: #ededed;
     --hovered: #ffffff;
   }
 }
 
-@theme {
+/* @theme {
   --color-primary: var(--foreground);
   --color-secondary: var(--background);
   --color-hovered: var(--hovered);
-}
+} */
 
 body {
   background: var(--background);
