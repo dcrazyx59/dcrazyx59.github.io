@@ -25,6 +25,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark">
+      <head>
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap"
+          as="style"
+        />
+        <noscript>
+          <link 
+            href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" 
+            rel="stylesheet"
+          />
+        </noscript>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
