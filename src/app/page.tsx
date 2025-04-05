@@ -4,6 +4,7 @@
 import NavBar from "./components/common/navbar";
 import ThemeToggle from './components/common/themeToggle';
 import Introduction from './components/sections/introduction';
+import Image from 'next/image';
 
 
 export default function Home() {
@@ -19,8 +20,8 @@ export default function Home() {
       </section>
 
       <section className="h-[130vh] bg-secondary">
-        <div className="flex justify-center align-center m-auto">
-          <img src="/bottom1.gif" alt="" className=""/>
+        <div className="flex justify-center align-center m-auto w-[218px] h-[123px]">
+          <Image src="/bottom1.gif" width={218} height={123} alt="" className="filter dark:invert"/>
         </div>
       </section>
 

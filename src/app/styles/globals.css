@@ -29,15 +29,18 @@
   }
 }
 
-/* @theme {
+@theme {
   --color-primary: var(--foreground);
   --color-secondary: var(--background);
   --color-hovered: var(--hovered);
-} */
+}
+
+body * {
+  @apply transition-colors duration-200;
+}
 
 body {
   background: var(--background);
   color: #b8b8b8;
   font-family: 'Big Shoulders', Arial, Helvetica, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }

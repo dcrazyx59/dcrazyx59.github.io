@@ -1,4 +1,4 @@
-import { useEffect ,useState , useRef} from 'react';
+import { useEffect, useRef} from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import customStyle from '../../utils/maps/dark_map.json'
@@ -48,7 +48,7 @@ export default function Introduction() {
     }, []);
 
     useEffect(() => {
-        const handleMouseMove = (e: any) => {
+        const handleMouseMove = (e: MouseEvent) => {
           const mouseX = e.clientX;
           const mouseY = e.clientY;
     
@@ -61,21 +61,17 @@ export default function Introduction() {
     
             const angleDeg = angle(mouseX, mouseY, eyeX, eyeY);
     
-            eye.style.transform = `rotate(${90 + angleDeg}deg)`;
+            (eye as HTMLElement).style.transform = `rotate(${90 + angleDeg}deg)`;
           });
         };
     
         document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('scroll', handleMouseMove);
-    
-    
         return () => {
           document.removeEventListener('mousemove', handleMouseMove);
-          document.addEventListener('scroll', handleMouseMove);
         };
       }, []);
     
-      function angle(cx : any, cy : any, ex : any, ey : any) {
+      function angle(cx : number, cy : number, ex : number, ey : number) {
         const dy = ey - cy;
         const dx = ex - cx;
         const rad = Math.atan2(dy, dx);
@@ -91,10 +87,10 @@ export default function Introduction() {
             </div>
             {/* <iframe width="500" height="300" src="https://api.maptiler.com/maps/backdrop/?key=W8F9znTXAD3GgukNA7Rh#10.0/40.46945/-3.71258"></iframe> */}
           <div id="anchor" className="eyes absolute bottom-[-22px] flex flex-row gap-3.5">
-              <img src="/eye.png" className="eye relative size-5.5 mb-6 rounded-2xl filter invert" alt="" />
-              <img src="/eye.png" className="eye relative size-5.5 mb-6 rounded-2xl filter invert" alt="" />
+              <img src="/eye.png" className="eye relative size-5.5 mb-6 rounded-2xl filter dark:invert" alt="" />
+              <img src="/eye.png" className="eye relative size-5.5 mb-6 rounded-2xl filter dark:invert" alt="" />
           </div>
-          <img src="/cat_black.png" alt="" className='absolute bottom-[-45px] w-[150px] h-[150px] filter invert'/>
+          <img src="/cat_black.png" alt="" className='absolute bottom-[-45px] w-[150px] h-[150px] filter dark:invert'/>
         </section>
     )
 }
