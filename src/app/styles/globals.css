@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap');
-
-
 @import "tailwindcss";
 
 :root {
@@ -44,5 +41,5 @@ body * {
 body {
   background: var(--background);
   color: #b8b8b8;
-  font-family: 'Big Shoulders', Arial, Helvetica, sans-serif;
+  font-family: var(--font-big-shoulders), sans-serif;
 }
