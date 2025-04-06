@@ -1,5 +1,8 @@
+'use client'
+
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useTheme } from 'next-themes';
 
 const themes = {
   moon: {
@@ -15,34 +18,54 @@ const themes = {
 };
 
 export default function ThemeToggle() {
+  const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState(themes.sun);
-  
+  const { setTheme: setNextTheme } = useTheme();
+
   useEffect(() => {
+    setMounted(true);
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme) {
-      setTheme(savedTheme === 'dark' ? themes.moon : themes.sun);
+      const newTheme = savedTheme === 'dark' ? themes.moon : themes.sun;
+      setTheme(newTheme);
+      setNextTheme(newTheme.name === 'moon' ? 'dark' : 'light');
     } else if (systemPrefersDark) {
       setTheme(themes.moon);
+      setNextTheme('dark');
+    } else {
+      setNextTheme('light');
     }
-  }, []);
+  }, [setNextTheme]);
   
   useEffect(() => {
+    if (!mounted) return;
+    
     if (theme.isDark) {
       document.documentElement.setAttribute('data-theme', 'dark');
       localStorage.setItem('theme', 'dark');
+      setNextTheme('dark');
     } else {
       document.documentElement.removeAttribute('data-theme');
       localStorage.setItem('theme', 'light');
+      setNextTheme('light');
     }
-  }, [theme]);
+  }, [theme, mounted, setNextTheme]);
 
   const handleTheme = () => {
     setTheme(prevTheme => 
       prevTheme.name === 'moon' ? themes.sun : themes.moon
     );
   };
+
+  if (!mounted) {
+    return (
+      <div className="fixed bottom-0 left-0 p-4 shadow-lg mix-blend-difference z-20">
+        <div className="w-6 h-6" />
+      </div>
+    );
+  }
 
   return (
     <div className="fixed bottom-0 left-0 p-4 shadow-lg mix-blend-difference z-20">

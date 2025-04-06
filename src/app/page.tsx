@@ -5,9 +5,10 @@ import NavBar from "./components/common/navbar";
 import ThemeToggle from './components/common/themeToggle';
 import Introduction from './components/sections/introduction';
 import Image from 'next/image';
-
+import { useTheme } from 'next-themes';
 
 export default function Home() {
+  const { theme } = useTheme()
 
   return (
     <>
@@ -21,7 +22,7 @@ export default function Home() {
 
       <section className="h-[130vh] bg-secondary">
         <div className="flex justify-center align-center m-auto w-[218px] h-[123px]">
-          <Image src="/bottom1.gif" width={218} height={123} alt="" className="filter dark:invert"/>
+          <Image src="/bottom1.gif" width={218} height={123} alt="" className={`transition-filter duration-300 ease-in-out filter dark:${theme === 'dark' ? "invert" : ""}`}/>
         </div>
       </section>
 
